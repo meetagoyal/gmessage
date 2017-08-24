@@ -1,11 +1,25 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+<div style="height: 100px; width: 100px; border: 2px solid black;">
+  <%= image_tag(@user.photo, style: "height: 100px; width: 100px;") if @user.photo %>
+</div>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %><br />
+    <%= f.color_field :color %>
+  </div>
+
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.url_field :photo %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

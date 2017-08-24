@@ -22,5 +22,27 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-      
-end
+        describe '.new' do
+            it 'instantiates a user object' do
+              c = User.new
+              expect(c.is_a?(User)).to be true
+              expect(c.attributes.keys.count).to eql(15)
+              expect(c.attributes.key?("color")).to eql(true)
+              expect(c.attributes.key?("photo")).to eql(true)
+            end
+        end
+        
+        describe '#save' do
+                context 'happy path' do
+                  it 'saves a user' do
+                            c = User.new(email: 'meeta5@gmail.com', password: '123123', photo: 'http://images.clipartpanda.com/user-clipart-dagobert83_female_user_icon.png' , color: '#FFC300' )
+                            c.save
+                            expect(c.id).to_not be_nil
+                            expect(c.color).to eql('#FFC300')
+                            expect(c.email).to eql('meeta5@gmail.com')
+                            expect(c.created_at).to_not be_nil
+                            expect(c.updated_at).to_not be_nil
+                    end
+              end
+        end
+end 

@@ -1,0 +1,25 @@
+<h1 class="display-4">Messages</h1>
+
+
+<a href="/messages/new" class="btn btn-outline-primary m-2">
+  <i class="fa fa-plus-circle"></i> New Message </a>
+
+
+<table class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Id</th>
+      <th>From</th>
+      <th>Subject</th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @sentmessages.each do |c| %>
+      <tr>
+            <td><%= c.id %></td>
+            <td><%= c.subject%></td>
+            <td><%= c.subject%></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
