@@ -9,6 +9,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'nav' %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <%= render 'alerts' %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <%= render 'footer' %>
   </body>
 </html>
